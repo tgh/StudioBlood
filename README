@@ -34,8 +34,8 @@ the API, and not too annoying for the pro's out there.
 This StudioBlood release package includes these plugins:
 
 
-ADT
----
+ADT (plugin ID #4305)
+---------------------
 ADT stands for Artificial Double-Tracking. Abbey Road Studios technician Ken
 Townsend invented this recording technique when working with The Beatles where
 the recording signal is taken from the playback head, recorded onto a separate
@@ -61,8 +61,8 @@ the virtual second track is placed on top of the existing sound--the same way
 delay and such is done.  I haven't learned yet how to do this, but will soon...
 
 
-esreveR (Random Reversal)
--------------------------
+esreveR (Random Reversal) (plugin ID #4302)
+-------------------------------------------
 This plugin takes each block of samples sent by the host, and reverses
 sub-blocks of random sizes (between 0.2 and 1.5 seconds).  Probably not much 
 practical use for the average person, but more of a random effect for those like
@@ -78,8 +78,8 @@ for linked vs. unlinked channels.
 The name esreveR is just Reverse backwards if you didn't already catch that.
 
 
-Kite
-----
+Kite (plugin ID #4304)
+----------------------
 This plugin takes a sound sample, randomly cuts it up into pieces
 of various lengths, randomly reverses some of the pieces, and glues them all
 back together randomly. This is based on the circus sound effects at the end of
@@ -96,8 +96,8 @@ of the whole algorithm and reimplementation of the run_kite() procedure.
 The plugin works fine other than that and does what it's supposed to do.
 
 
-Revolution
-----------
+Revolution (plugin ID #4301)
+----------------------------
 It's simple effect creates a fuzz distortion similar to that of The Beatles'
 "Revolution" where, in that case, guitars were plugged directly into the
 recording console and intentionally overloaded.
@@ -108,8 +108,8 @@ are a dime a dozen.  I only chose this effect to learn the API and get my feet
 wet.
 
 
-Ringer
-------
+Ringer (plugin ID #4303)
+------------------------
 The results of the Ringer effect are similar to a ring modulator.  What it does
 is take the first sample from the input buffer, makes a number of copies
 (specified by the user from 5 to 200) to the output buffer, skips that same
@@ -121,6 +121,18 @@ city skyline when you zoom in on the samples.
 
 The plugins files (shared object files) all have the prefix 'sb_' to make them
 easier to organize and keep track of.
+
+
+-------------------------------------------------------------------------------
+                                PLUGIN IDs
+-------------------------------------------------------------------------------
+
+I own plugin ID numbers:
+
+4301 - 4340,
+
+thanks to Richard Furse (e-mail him at ladspa@muse.demon.co.uk for your own
+LADSPA plugin ID numbers).
 
 
 -------------------------------------------------------------------------------
