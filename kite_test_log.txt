@@ -1,0 +1,21 @@
+
+Test 1: 8000 sample rate, 4000 samples
+	Result: Passed.
+
+Test 2: 8000 sample rate, 4001 samples
+	Result: reverse switch received a value of 2
+	Error: random number function changed to include upper bound, but caller's
+			parameter for the upper bound didn't get changed from 2 to 1
+	Fix: changed call upper bound parameter from 2 to 1
+	Result: Passed.
+
+Test 3: 8000 sample rate, 18000 samples
+	Result: Passed.
+	Note: reverse was off 3 times out of 3
+
+Test 4: 8000 sample rate, 18001 samples
+	Result: Overlapping samples when overwriting sub-block
+	Error: didn't forsee that special case
+	Fix: added special case
+	Result: Sub-blocks can still be of length smaller than minimum
+	Error: incomplete algorithm

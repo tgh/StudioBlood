@@ -1,0 +1,178 @@
+STUDIOBLOOD LADSPA PLUGIN PACKAGE
+COPYRIGHT ©2009 Tyler Hayes <tgh@pdx.edu>
+ALL RIGHTS RESERVED
+
+
+Each of the LADSPA plugins in this package are licensed under the GPL v3.
+
+
+-------------------------------------------------------------------------------
+                                   INTRO
+-------------------------------------------------------------------------------
+StudioBlood is a package of LADSPA plugins written in C. This API is meant to
+be used to create effects mostly similar to guitar effects pedals that work
+on-the-fly such as reverb, delay, phaser, flanger, chorus, or distortion.
+StudioBlood, however, tries to offer more unique effects that are more along
+the lines of studio tricks rather than real-time effects like an equalizer or
+compressor or any of the others listed above. There are a couple of those too,
+but the main purpose is to provide something that you might not find in any
+other LADSPA plugin package, and that creates more abstract sounds.
+
+Open source audio editing programs such as Ardour and Audacity that support the
+LADSPA can be used to apply these effects to sound files through the created
+plugins.  ladspa.org has a list of host programs that support the LADSPA.
+
+I am still a student programmer at the time of this writing, so some of the
+comments in the source code are detailed and directed at the beginner as well.
+Hopefully the comments will be beneficial to those who were like me in learning
+the API, and not too annoying for the pro's out there.
+
+
+-------------------------------------------------------------------------------
+                                 THE PLUGINS
+-------------------------------------------------------------------------------
+This StudioBlood release package includes these plugins:
+
+
+ADT
+---
+ADT stands for Artificial Double-Tracking. Abbey Road Studios technician Ken
+Townsend invented this recording technique when working with The Beatles where
+the recording signal is taken from the playback head, recorded onto a separate
+machine with a variable oscillator, and then fed back onto the original tape to
+be combined with the original signal but just slightly out of sync--like a few
+milliseconds. The result is what sounds like (in vocals, for instance) two of
+the same voices without having to go back and record another track. This plugin
+tries to emulate ADT with one user option for variable offset length.
+
+At this point this plugin is ONLY FOR STEREO sound files.  Not only that, but
+it is intended to be used with stereo files that have just been converted from
+mono (although it can be used with any stereo sound). A mono sound in stereo is
+still a mono sound.  But using ADT shifts the right channel of the mono sound
+just slightly (as in milliseconds). This does two things at once: creates a
+panned stereo sound, and virtually double-tracks the sound.
+For example, you lay down a vocal track.  Then apply ADT to it, and you
+automatically have two vocal tracks (sung literally exactly the same), and
+panned into full stereo.  I say it's 'virtually' double-tracked, because, of
+course, it is still only one sound file, and thus, can only be one track.
+
+Mono capabilities is planned, where the second sound that is shifted to create
+the virtual second track is placed on top of the existing sound--the same way
+delay and such is done.  I haven't learned yet how to do this, but will soon...
+
+
+esreveR (Random Reversal)
+-------------------------
+This plugin takes each block of samples sent by the host, and reverses
+sub-blocks of random sizes (between 0.2 and 1.5 seconds).  Probably not much 
+practical use for the average person, but more of a random effect for those like
+me who like to create weird and new sounds.
+
+IMPORTANT NOTE: this plugin does not account for left/right channels, which
+means that the channels will have different results--in other words, different
+radnomness.  This is cool when you want an abstract, weird, random effect like
+this one, but not cool if you want each channel to be done the same, like your
+standard reverb or what have you.  In the future, I hope to add a user option
+for linked vs. unlinked channels.
+
+The name esreveR is just Reverse backwards if you didn't already catch that.
+
+
+Kite
+----
+This plugin takes a sound sample, randomly cuts it up into pieces
+of various lengths, randomly reverses some of the pieces, and glues them all
+back together randomly. This is based on the circus sound effects at the end of
+"Being for the Benefit of Mr. Kite!" by The Beatles, which was created by George
+Martin and Geoff Emerick by literally cutting up sound effects tape, tossing
+them up in the air, and splicing the pieces back together randomly.
+
+KNOWN BUG: The plugin is supposed to vary the lengths of random sub-blocks from
+0.25 seconds to 2 seconds.  However, I didn't see deep enough into my algorithm
+to see that it is possible to get sub-blocks of lengths smaller than 0.25
+seconds--even a sub-block of 1 sample!  To fix this would require a overhaul
+of the whole algorithm and reimplementation of the run_kite() procedure.
+
+The plugin works fine other than that and does what it's supposed to do.
+
+
+Revolution
+----------
+It's simple effect creates a fuzz distortion similar to that of The Beatles'
+"Revolution" where, in that case, guitars were plugged directly into the
+recording console and intentionally overloaded.
+
+This was my first shot at writing a LADSPA plugin, which is why this one is so
+simple.  I'm not interested in this effect for usage, because distortion effects
+are a dime a dozen.  I only chose this effect to learn the API and get my feet
+wet.
+
+
+Ringer
+------
+The results of the Ringer effect are similar to a ring modulator.  What it does
+is take the first sample from the input buffer, makes a number of copies
+(specified by the user from 5 to 200) to the output buffer, skips that same
+amount of samples in the input buffer, and repeats until the input buffer is
+exhausted.  The higher the number of copies, the more the wavefile looks like a
+city skyline when you zoom in on the samples.
+
+***
+
+The plugins files (shared object files) all have the prefix 'sb_' to make them
+easier to organize and keep track of.
+
+
+-------------------------------------------------------------------------------
+                            INSTALL & UNINSTALL
+-------------------------------------------------------------------------------
+You must have the LADSPA SDK installed first in order for these plugins to
+work.  Go here to download it: http://www.ladspa.org/ladspa_sdk/download.html.
+
+To install, first open the Makefile and make sure that the LADSPA_PATH variable
+matches the directory of your system's LADSPA_PATH environment variable.  Once
+that is good, run 'sudo make install'.  Of course, if you don't have root
+privileges you wont be able to install.  Ask whoever the supervisor of your
+system is to install for you, or, if (s)he's really nice, give you the root
+password.  This will compile the source code files into shared object files and
+copies them into your LADSPA_PATH directory.
+
+Once they're there, you're good to go.  Just open your favorite audio editing
+program (must be LADSPA compatible though) and the plugins should appear
+wherever the effects reside in your programs interface.  In Audacity (the
+program I used to test the plugins), for example, you would go to the Effects
+menu, and at the bottom there should be sub-menus ("Plugins 1 to 5", for
+example) for however many other plugins you have.
+
+You can also run 'make clean' to remove the object files and shared object files
+from the current directory you ran make from.
+
+To uninstall, run 'sudo make uninstall' (again, you need root privileges for
+this).
+
+
+-------------------------------------------------------------------------------
+                               REPOSITORIES
+-------------------------------------------------------------------------------
+You can find the repositories for each plugin at GitHub.com:
+
+Revolution - http://github.com/tgh/Revolution
+esreveR - http://github.com/tgh/esreveR
+Ringer - http://github.com/tgh/Ringer
+Kite - http://github.com/tgh/Kite
+ADT - http://github.com/tgh/ADT
+
+
+-------------------------------------------------------------------------------
+                                  THANKS
+-------------------------------------------------------------------------------
+Thanks to:
+- Bart Massey of Portland State University (http://web.cecs.pdx.edu/~bart/)
+  for his direct help
+- Richard Furse (http://www.muse.demon.co.uk/) for his examples
+- Richard Brent (http://wwwmaths.anu.edu.au/~brent/random.html) for his
+  uniform random number generator
+- David Benson (http://gdam.ffem.org/ladspa-doc/ladspa.html) for his
+  tutorial
+- Dave Phillips (http://linuxdevcenter.com/pub/a/linux/2001/02/02/ladspa.html)
+  for his ladspa information

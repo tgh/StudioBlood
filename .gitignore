@@ -1,0 +1,25 @@
+# subdirectories
+*/
+
+# backup files
+*~
+
+# .o files
+*.o
+
+# .so files
+*.so
+
+# pseudo code
+pseudo*
+
+# templates
+*_template*
+
+# test results
+*.dat
+
+# misc
+makefile_additional_flags
+LADSPA process
+TO DO

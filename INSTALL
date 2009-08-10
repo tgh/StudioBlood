@@ -1,0 +1,33 @@
+STUDIOBLOOD LADSPA PLUGIN PACKAGE
+COPYRIGHT ©2009 Tyler Hayes <tgh@pdx.edu>
+ALL RIGHTS RESERVED
+
+
+-------------------------------------------------------------------------------
+                         INSTALLING & UNINSTALLING
+-------------------------------------------------------------------------------
+
+You must have the LADSPA SDK installed first in order for these plugins to
+work.  Go here to download it: http://www.ladspa.org/ladspa_sdk/download.html.
+
+To install, first open the Makefile and make sure that the LADSPA_PATH variable
+matches the directory of your system's LADSPA_PATH environment variable.  Once
+that is good, run 'sudo make install'.  Of course, if you don't have root
+privileges you wont be able to install.  Ask whoever the supervisor of your
+system is to install for you, or, if (s)he's really nice, give you the root
+password.  This will compile the source code files into shared object files and
+copies them into your LADSPA_PATH directory.
+
+Once they're there, you're good to go.  Just open your favorite audio editing
+program (must be LADSPA compatible though) and the plugins should appear
+wherever the effects reside in your programs interface.  In Audacity (the
+program I used to test the plugins), for example, you would go to the Effects
+menu, and at the bottom there should be sub-menus ("Plugins 1 to 5", for
+example) for however many other plugins you have.
+
+You can also run 'make clean' to remove the object files and shared object files
+from the current directory you ran make from.
+
+
+To uninstall, run 'sudo make uninstall' (again, you need root privileges for
+this).
