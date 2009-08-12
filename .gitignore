@@ -22,3 +22,4 @@ LADSPA process
 REQUIREMENTS
 PACKAGE_COMPILED/
 PACKAGE_SOURCE/
+plugin_makefile_template.txt
