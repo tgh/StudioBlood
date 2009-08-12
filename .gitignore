@@ -1,6 +1,3 @@
-# subdirectories
-*/
-
 # backup files
 *~
 
@@ -23,3 +20,5 @@ pseudo*
 makefile_additional_flags
 LADSPA process
 REQUIREMENTS
+PACKAGE_COMPILED/
+PACKAGE_SOURCE/
