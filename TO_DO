@@ -1,6 +1,7 @@
 - change Makefile for source code in subdirectories
 - add option of stereo linked/not linked to esreveR
 - add varying level of distortion and gain to Revolution
-- add mono option to ADT (figure out how to overlap sounds)
+- add mono option to ADT
 - add optional minimum and maximum segment size in esreveR and Kite
 - change comments in plugin template
+- redo algorithm for Kite
