@@ -53,22 +53,22 @@ sb_ringer.so: sb_ringer.o
 
 # --- .o files ---
 
-sb_adt.o: sb_adt.c ladspa.h
-	$(CC) $(CFLAGS) -c sb_adt.c
+sb_adt.o: ./ADT/sb_adt.c ladspa.h
+	$(CC) $(CFLAGS) -c ./ADT/sb_adt.c
 
-sb_esreveR.o: sb_esreveR.c xorgens.c ladspa.h xorgens.h
-	$(CC) $(CFLAGS) -c sb_esreveR.c
+sb_esreveR.o: ./esreveR/sb_esreveR.c xorgens.c ladspa.h xorgens.h
+	$(CC) $(CFLAGS) -c ./esreveR/sb_esreveR.c
 	$(CC) $(CFLAGS) -c xorgens.c
 
-sb_kite.o: sb_kite.c xorgens.c ladspa.h xorgens.h
-	$(CC) $(CFLAGS) -c sb_kite.c
+sb_kite.o: ./Kite/sb_kite.c xorgens.c ladspa.h xorgens.h
+	$(CC) $(CFLAGS) -c ./Kite/sb_kite.c
 	$(CC) $(CFLAGS) -c xorgens.c
 
-sb_revolution.o: sb_revolution.c ladspa.h
-	$(CC) $(CFLAGS) -c sb_revolution.c
+sb_revolution.o: ./Revolution/sb_revolution.c ladspa.h
+	$(CC) $(CFLAGS) -c ./Revolution/sb_revolution.c
 
-sb_ringer.o: sb_ringer.c ladspa.h
-	$(CC) $(CFLAGS) -c sb_ringer.c
+sb_ringer.o: ./Ringer/sb_ringer.c ladspa.h
+	$(CC) $(CFLAGS) -c ./Ringer/sb_ringer.c
 
 # ----------------------------------------------------
 
