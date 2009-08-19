@@ -1,4 +1,4 @@
-SUBDIRS = adt \
+SUBDIRS = ADT \
 	esreveR \
 	Kite \
 	Revolution \
