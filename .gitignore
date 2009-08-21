@@ -24,3 +24,4 @@ PACKAGE_COMPILED/
 PACKAGE_SOURCE/
 plugin_makefile_template.txt
 Makefile_old
+autom4te.cache/
