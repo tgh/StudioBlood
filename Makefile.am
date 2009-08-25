@@ -3,3 +3,5 @@ SUBDIRS = ADT \
 	Kite \
 	Revolution \
 	Ringer
+
+MFLAGS = $(MFLAGS) LADSPA_PATH=$(LADSPA_PLUGINS)

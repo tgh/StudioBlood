@@ -1,21 +1,21 @@
 # backup files
 *~
-
+ 
 # .o files
 *.o
-
+ 
 # .so files
 *.so
-
+ 
 # pseudo code
 pseudo*
-
+ 
 # templates
 *_template*
-
+ 
 # test results
 *.dat
-
+ 
 # misc
 makefile_additional_flags
 LADSPA process
@@ -24,4 +24,14 @@ PACKAGE_COMPILED/
 PACKAGE_SOURCE/
 plugin_makefile_template.txt
 Makefile_old
+Makefile
+Makefile.in
+aclocal.m4
 autom4te.cache/
+config.h
+config.log
+config.status
+configure
+install-sh
+missing
+stamp-h1

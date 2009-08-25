@@ -1,9 +1,9 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.64])
+AC_PREREQ([2.63])
 AC_INIT([StudioBlood], [0.1], [tgh@pdx.edu])
-AC_CONFIG_SRCDIR([xorgens.c])
+AC_CONFIG_SRCDIR([sb_adt.c])
 AC_CONFIG_HEADERS([config.h])
 
 AM_INIT_AUTOMAKE
